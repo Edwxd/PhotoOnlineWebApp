@@ -97,6 +97,8 @@ rectangle "Photo Online Printing Store" as BoundedContextPhotoOnlinePrinting #li
 
   Package "Purchase Management Subdomain" <<Rectangle>> #lavender{
 
+  note "Invariant: when a purchase is canceled, it stays in the list of purchases but the status of the purchase is changed ex: the purchase status is set as 'Canceled' " as purchaseInvariant
+
             AGGREGATE_Root_ENTITY(Purchase) #LightCyan{
                + TotalCost: totalCost
                + string: typeOfPayment
