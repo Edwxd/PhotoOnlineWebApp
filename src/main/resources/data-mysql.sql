@@ -16,6 +16,18 @@ VALUES ('f4d00bc3-2b5d-4e8b-80d6-cd23ddc25a89', '8x12', 'WITH_COLOR', 2, 'METALL
 INSERT INTO photos (photo_id, dimensions, color, copies, framing, gift_wrap)
 VALUES ('b0911de8-14b4-4827-b85e-63200e19631d', '20x24', 'NO_COLOR', 3, 'METALLIC', 1);
 
+INSERT INTO photos (photo_id, dimensions, color, copies, framing, gift_wrap)
+VALUES ('5a5e34d2-41c5-46c1-9f81-97cfc66bce9e', '12x18', 'NO_COLOR', 2, 'WOODEN_BLACK', 1);
+
+INSERT INTO photos (photo_id, dimensions, color, copies, framing, gift_wrap)
+VALUES ('f1e93d23-5088-4348-bdd8-30653a63aa2e', '24x36', 'NO_COLOR', 1, 'WOODEN_WHITE', 0);
+
+INSERT INTO photos (photo_id, dimensions, color, copies, framing, gift_wrap)
+VALUES ('18af7a32-1c02-4c98-bd36-8b6956ad4d21', '8x10', 'WITH_COLOR', 3, 'METALLIC', 1);
+
+INSERT INTO photos (photo_id, dimensions, color, copies, framing, gift_wrap)
+VALUES ('7a6ff21c-fb25-4be4-b4e7-47e8c8c38f98', '20x30', 'WITH_COLOR', 4, 'NON', 0);
+
 
 ------------------------------------------------------------------
 
