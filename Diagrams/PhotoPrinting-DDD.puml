@@ -1,0 +1,129 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+hide circle
+top to bottom direction
+!define ENTITY(entityName) class entityName <<Entity>>
+!define AGGREGATE(aggregateName) class aggregateName <<Aggregate>>
+!define AGGREGATE_ROOT(aggregateRootName) class aggregateRootName <<Aggregate Root>>
+!define AGGREGATE_Root_ENTITY(aggregateRootEntityName) class aggregateRootEntityName <<Aggregate Root>> << Entity >>
+!define VALUE_OBJECT(valueObjectName) class valueObjectName <<Value Object>>
+
+
+!pragma userVerticalIf on
+skinparam dpi 350
+skinparam packageStyle rectangle
+skinparam rectangle{
+
+    Background #f7f4eb
+    BorderColor Black
+
+}
+
+rectangle "Photo Online Printing Store" as BoundedContextPhotoOnlinePrinting #line.dashed{
+
+    Package "Photo Management Subdomain" <<Rectangle>> #lavender{
+
+        ENTITY(Photo) #LightCyan{
+            + string: dimensions
+            + string: color
+            + int: copies
+            + string: framing
+            + bool: gift_wrap
+        }
+
+        VALUE_OBJECT(PhotoIdentifier) #LightCyan{
+            + photoId: UUID
+        }
+
+        Photo "1" o--> "1" PhotoIdentifier
+    }
+
+
+    Package "Customer Management Subdomain" <<Rectangle>> #lavender{
+
+        ENTITY(Customer) #LightCyan{
+           + string: firstName
+           + string: lastName
+           + string: email
+           + PhoneNumberInformation: phoneNumberInformation
+           + AddressInformation : addressInformation
+        }
+
+        VALUE_OBJECT(CustomerIdentifier) #LightCyan{
+           + customerId: UUID
+        }
+
+        VALUE_OBJECT(PhoneNumberInformation) #LightCyan{
+            + string: type
+            + string: number
+        }
+
+        VALUE_OBJECT(AddressInformation) #LightCyan{
+                    + string: streetAddress
+                    + string: city
+                    + string: state
+                    + string: country
+                    + string: postalCode
+        }
+
+        Customer "1" o--> "1" CustomerIdentifier
+        Customer "1" o--> "1..*" PhoneNumberInformation
+        Customer "1" o--> "1..*" AddressInformation
+
+}
+
+     Package "Delivery Management Subdomain" <<Rectangle>> #lavender{
+
+            ENTITY(Delivery) #LightCyan{
+               + ArrivalInformation: arrivalInformation
+               + string: company
+               + string: deliveryInstructions
+            }
+
+            VALUE_OBJECT(DeliveryIdentifier) #LightCyan{
+               + deliveryId: UUID
+            }
+
+            VALUE_OBJECT(ArrivalInformation) #LightCyan{
+                + string: date
+                + string: time
+            }
+
+        Delivery "1" o--> "1" DeliveryIdentifier
+        Delivery "1" o--> "1" ArrivalInformation
+
+}
+
+  Package "Purchase Management Subdomain" <<Rectangle>> #lavender{
+
+            AGGREGATE_Root_ENTITY(Purchase) #LightCyan{
+               + TotalCost: totalCost
+               + string: typeOfPayment
+               + string: status
+
+            }
+
+            VALUE_OBJECT(PurchaseIdentifier) #LightCyan{
+               + purchaseId: UUID
+            }
+
+            VALUE_OBJECT(TotalCost) #LightCyan{
+                + Decimal: SubTotal
+                + Decimal: Total
+            }
+
+
+        Purchase "1" o--> "1" PurchaseIdentifier
+        Purchase "1" o--> "1" TotalCost
+
+        PhotoIdentifier "1" o--> "1" Purchase
+        CustomerIdentifier "1" o--> "1" Purchase
+        DeliveryIdentifier "1" o--> "1" Purchase
+
+
+
+    }
+}
+
+@enduml
