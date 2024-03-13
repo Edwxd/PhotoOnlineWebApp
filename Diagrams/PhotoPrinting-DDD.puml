@@ -75,7 +75,7 @@ rectangle "Photo Online Printing Store" as BoundedContextPhotoOnlinePrinting #li
 
      Package "Delivery Management Subdomain" <<Rectangle>> #lavender{
 
-            AGGREGATE_Root_ENTITY(Delivery) #LightCyan{
+            ENTITY(Delivery) #LightCyan{
                + ArrivalInformation: arrivalInformation
                + company: String
                + deliveryInstructions: String
@@ -99,7 +99,7 @@ rectangle "Photo Online Printing Store" as BoundedContextPhotoOnlinePrinting #li
 
   note "Invariant: when a purchase is canceled, it stays in the list of purchases but the status of the purchase is changed ex: the purchase status is set as 'Canceled' " as purchaseInvariant
 
-            AGGREGATE_Root_ENTITY(Purchase) #LightCyan{
+            ENTITY(Purchase) #LightCyan{
                + totalCost: TotalCost
                + typeOfPayment: String
                + status: String
@@ -131,9 +131,10 @@ rectangle "Photo Online Printing Store" as BoundedContextPhotoOnlinePrinting #li
      Package "Delivery warehouse Management Subdomain" <<Rectangle>> #grey{
 
 
-                AGGREGATE_Root_ENTITY(Warehouse) #slategrey{
-                   + Location : WarehouseLocationInformation
-                   + Company: String
+                ENTITY(Warehouse) #slategrey{
+                   + location : WarehouseLocationInformation
+                   + company: String
+                   + printingFacilityOrderPickupSchedule: Schedule
 
                 }
 
@@ -148,10 +149,17 @@ rectangle "Photo Online Printing Store" as BoundedContextPhotoOnlinePrinting #li
 
                 }
 
+                VALUE_OBJECT(Schedule) #slategrey{
+                    + orderPickUpDate: LocalDate
+                    + orderPickUpTime: LocalTime
+
+                }
+
 
             Warehouse "1" o--> "1" WarehouseIdentifier
             Warehouse "1" o--> "1" WarehouseLocationInformation
-            WarehouseIdentifier o-->  DeliveryIdentifier
+            Warehouse "1" o--> "1"Schedule
+            WarehouseIdentifier "..*" o--> "..*" DeliveryIdentifier
 
         }
 
@@ -233,7 +241,7 @@ Package "Printing facility Management Subdomain" <<Rectangle>> #grey{
                      Supplier "1" o--> "1" SupplierLocationInformation
                      Supplier "1" o--> "1..*" SupplierMaterial
                      Supplier "1" o--> "1..*" ScheduleInformation
-                     SupplierIdentifier --> FacilityIdentifier
+                     SupplierIdentifier "1..*" o--> "1..*" FacilityIdentifier
                     }
 }
 
