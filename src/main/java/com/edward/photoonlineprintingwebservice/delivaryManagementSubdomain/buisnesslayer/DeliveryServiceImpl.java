@@ -76,8 +76,8 @@ public class DeliveryServiceImpl implements DeliveryService {
         ArrivalInformation arrivalInformation = new ArrivalInformation(deliveryRequestModel.getDate()
                 , deliveryRequestModel.getTime());
 
-        Delivery updatedDelivery = deliveryRequestMapper.requestModelToEntity(deliveryRequestModel, new DeliveryIdentifier()
-                , arrivalInformation);
+        Delivery updatedDelivery = deliveryRequestMapper.requestModelToEntity(deliveryRequestModel,
+                existingDelivery.getDeliveryIdentifier(), arrivalInformation);
         updatedDelivery.setId(existingDelivery.getId());
 
         Delivery response = deliveryRepository.save(updatedDelivery);

@@ -61,25 +61,25 @@ public interface PurchaseResponseMapper {
         Link allPurchasesLink =
                 linkTo(methodOn(CustomerPurchaseController.class)
                         .getAllPurchasesForCustomer(purchaseResponseModel.getCustomerId()))
-                        .withRel("All Purchases").withRel("Purchases");
+                        .withRel("All Purchases").withRel("Customer purchases:");
         purchaseResponseModel.add(allPurchasesLink);
 
 //        Customer link
         Link customerLink =
                 linkTo(methodOn(CustomerController.class).getCustomerByCustomerId(purchaseResponseModel
-                        .getCustomerId())).withSelfRel().withRel("Customers");
+                        .getCustomerId())).withSelfRel().withRel("Customer:");
         purchaseResponseModel.add(customerLink);
 
 
 //        Deliveries link
         Link deliveriesLink =
                 linkTo(methodOn(DeliveryController.class).getDeliveryByDeliveryId(purchaseResponseModel
-                        .getDeliveryId())).withSelfRel().withRel("Deliveries");
+                        .getDeliveryId())).withSelfRel().withRel("Delivery:");
         purchaseResponseModel.add(deliveriesLink);
 
 
         Link photosLink = linkTo(methodOn(PhotoController.class).getPhotoByPhotoId(purchaseResponseModel.getPhotoId()))
-                .withSelfRel().withRel("Photos");
+                .withSelfRel().withRel("Photo:");
         purchaseResponseModel.add(photosLink);
 
     }
