@@ -185,7 +185,7 @@ VALUES ('6e61b9f3-b915-4af0-88e0-d7c460bb5070', 'd2f649e2-0b6a-4c08-bd3a-ef5e25c
 INSERT INTO purchases(purchase_id, customer_id, photo_id, delivery_id, type_of_payment, sub_Total, total, status)
 VALUES ('7a78760b-0d75-4c15-b0e8-d228b6899342', 'e45dfb9e-78d2-4218-8f91-0f4f722e4f91',
         '5a5e34d2-41c5-46c1-9f81-97cfc66bce9e', 'd892f7d1-aa1b-48c2-b9f2-ecfe38c1f533',
-        'Cash', '20.50 $', '25.69 $', 'Accepted');
+        'Credit_Mastercard', '20.50 $', '25.69 $', 'Accepted');
 
 
 INSERT INTO purchases(purchase_id, customer_id, photo_id, delivery_id, type_of_payment, sub_Total, total, status)
@@ -196,24 +196,24 @@ VALUES ('8b95e2c1-c9a4-4c5f-a016-1b4f1bcf524b', '9e3d5a2a-4526-41a2-97db-3651420
 INSERT INTO purchases(purchase_id, customer_id, photo_id, delivery_id, type_of_payment, sub_Total, total, status)
 VALUES ('9b687012-081d-4d5b-8592-5aee0b028bdc', '9e3d5a2a-4526-41a2-97db-3651420e0b16',
         '18af7a32-1c02-4c98-bd36-8b6956ad4d21', 'e1c8df82-5aef-4a49-9e5f-8f103f22c10a',
-        'Credit_Mastercard', '60.00 $', '67.48 $', 'Accepted');
+        'Paypal', '60.00 $', '67.48 $', 'Accepted');
 
 INSERT INTO purchases(purchase_id, customer_id, photo_id, delivery_id, type_of_payment, sub_Total, total, status)
 VALUES ('fdac5b22-ee79-438d-8b84-9c49866ac7e4', '7f81a88f-39ed-4a57-a8ee-17607fe66cb3',
         '7a6ff21c-fb25-4be4-b4e7-47e8c8c38f98', 'i7a9464c-1492-4d65-b7e2-e10c18ff9f8f',
-        'Cash', '45.25 $', '51.60 $', 'Accepted');
+        'Paypal', '45.25 $', '51.60 $', 'Accepted');
 
 INSERT INTO purchases(purchase_id, customer_id, photo_id, delivery_id, type_of_payment, sub_Total, total, status)
 VALUES ('9b98e1a5-5128-4a6d-8e80-d29a1230f499', '19a4d10a-3190-4a78-bd5a-fa5ad085ddbf',
         'b6fde2dc-9a4e-49da-99a2-48bfb9f612d8', 'a2b81e9f-6a4e-49c6-89ef-15ac654928c1',
-        'Credit', '100.00 $', '115.25 $', 'Accepted');
+        'Paypal', '100.00 $', '115.25 $', 'Accepted');
 
 INSERT INTO purchases(purchase_id, customer_id, photo_id, delivery_id, type_of_payment, sub_Total, total, status)
 VALUES ('71f04c94-86d2-42db-9076-eb92086e11ee', '7d76d1e8-5d15-4e02-b2b0-614b17c8b65c',
         '3e2d61e5-51f6-4d2d-99ad-70b810e33f38', 'e8cfd6ab-25bc-4f5d-b1e7-37f7e7c2de9a',
-        'Credit Card', '17.00 $', '22.35 $', 'Accepted');
+        'Paypal', '17.00 $', '22.35 $', 'Accepted');
 
 INSERT INTO purchases(purchase_id, customer_id, photo_id, delivery_id, type_of_payment, sub_Total, total, status)
 VALUES ('0720a05f-f01d-4b73-9db9-28b7b5a48d44', '894aa251-4bc3-45a1-8b88-4d06c918c32e',
         'a8cbfa9b-7553-4f23-9d0a-15584f7bf4bc', 'fba214ef-0a7b-4f89-b298-8b7b1d6f56df',
-        'Credit Card', '55.00 $', '61.66 $', 'Accepted');
+        'Paypal', '55.00 $', '61.66 $', 'Accepted');

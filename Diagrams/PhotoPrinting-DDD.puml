@@ -24,7 +24,7 @@ rectangle "Photo Online Printing Store" as BoundedContextPhotoOnlinePrinting #li
 
     Package "Photo Management Subdomain" <<Rectangle>> #lavender{
 
-        ENTITY(Photo) #LightCyan{
+        AGGREGATE_Root_ENTITY(Photo) #LightCyan{
             + dimension : String
             + String: color
             + copies: Integer
@@ -42,7 +42,7 @@ rectangle "Photo Online Printing Store" as BoundedContextPhotoOnlinePrinting #li
 
     Package "Customer Management Subdomain" <<Rectangle>> #lavender{
 
-        ENTITY(Customer) #LightCyan{
+        AGGREGATE_Root_ENTITY(Customer) #LightCyan{
            + firstName: String
            + lastName: String
            + email: String
@@ -75,7 +75,7 @@ rectangle "Photo Online Printing Store" as BoundedContextPhotoOnlinePrinting #li
 
      Package "Delivery Management Subdomain" <<Rectangle>> #lavender{
 
-            ENTITY(Delivery) #LightCyan{
+            AGGREGATE_Root_ENTITY(Delivery) #LightCyan{
                + ArrivalInformation: arrivalInformation
                + company: String
                + deliveryInstructions: String
@@ -99,7 +99,7 @@ rectangle "Photo Online Printing Store" as BoundedContextPhotoOnlinePrinting #li
 
   note "Invariant: when a purchase is canceled, it stays in the list of purchases but the status of the purchase is changed ex: the purchase status is set as 'Canceled' " as purchaseInvariant
 
-            ENTITY(Purchase) #LightCyan{
+            AGGREGATE_Root_ENTITY(Purchase) #LightCyan{
                + totalCost: TotalCost
                + typeOfPayment: String
                + status: String
@@ -131,7 +131,7 @@ rectangle "Photo Online Printing Store" as BoundedContextPhotoOnlinePrinting #li
      Package "Delivery warehouse Management Subdomain" <<Rectangle>> #grey{
 
 
-                ENTITY(Warehouse) #slategrey{
+                AGGREGATE_Root_ENTITY(Warehouse) #slategrey{
                    + location : WarehouseLocationInformation
                    + company: String
                    + printingFacilityOrderPickupSchedule: Schedule
