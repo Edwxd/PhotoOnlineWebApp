@@ -1,5 +1,5 @@
 services:
-  fitnesscenter:
+  onlinephotoprinting:
     build: .
     hostname: photoonlineprinting
     ports:
